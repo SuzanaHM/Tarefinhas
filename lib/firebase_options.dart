@@ -48,7 +48,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyAgIS3Rvc4v0L43b3Au8g3b2BLZDsIi__E',
-    appId: '1:985629934366:web:fbee424d61172e607fff0f',
+    appId: '1:985629934366:web:a395553bab8854697fff0f',
     messagingSenderId: '985629934366',
     projectId: 'tarefinhas-8bsfd',
     authDomain: 'tarefinhas-8bsfd.firebaseapp.com',
@@ -57,7 +57,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAX7saiY6etbo1rVXTfdzUL3BSAQZYF3aM',
+    apiKey: 'AIzaSyAowjQwQAljjzMxuvfa35q6eB_XlQetDus',
     appId: '1:985629934366:android:57e43cfccd4fe9777fff0f',
     messagingSenderId: '985629934366',
     projectId: 'tarefinhas-8bsfd',
@@ -74,4 +74,5 @@ class DefaultFirebaseOptions {
     databaseURL: 'https://tarefinhas-8bsfd-default-rtdb.firebaseio.com',
     storageBucket: 'tarefinhas-8bsfd.firebasestorage.app',
   );
+
 }
