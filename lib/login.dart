@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:tarefinhas/AppBarPadrao.dart';
+import 'package:tarefinhas/Cache.dart';
+import 'package:tarefinhas/SeletorConta.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -22,8 +24,17 @@ class _LoginState extends State<Login> {
   void _verificarLogin() {
     final user = _auth.currentUser;
     if (user != null) {
-      print('Já está logado como ${user.displayName}');
+      _clearCache();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => SeletorConta()),
+      );
     }
+  }
+
+  Future<void> _clearCache() async {
+    final cache = await Cache.create();
+    cache.clear();
   }
 
   Future<void> _loginComGoogle() async {
@@ -48,13 +59,19 @@ class _LoginState extends State<Login> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Logado como ${user.displayName}')),
         );
-        print("Logado");
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return SeletorConta();
+            },
+          ),
+        );
       }
     } catch (e) {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text('Erro ao logar: $e')));
-      print(e);
     }
   }
 
